@@ -49,13 +49,19 @@ Marcadas no código com `TODO` / `REPLACE`.
 
 1. **Número do WhatsApp** — em `script.js`, preencher `WA_NUMBER` (formato `55 + DDD + número`, só dígitos).
    Enquanto vazio, todos os botões de pedido caem no Instagram.
-2. **Preços** — todos os sabores estão com `R$ 00,00`. Confirmar com o cliente.
-3. **Alérgenos** — conferir as tags de cada sabor com quem produz (a do Negresco assume soja).
-4. **Domínio** — trocar `REPLACE_COM_SEU_DOMINIO` no `index.html` (`og:url`, `og:image`, `logo`, JSON-LD).
-5. **Mapa** — trocar o `src` do `<iframe>` pelo embed real do endereço da loja (Google Maps → Compartilhar → Incorporar).
-6. **Telefone no JSON-LD** — `+55REPLACE_DDD_NUMERO` e coordenadas `geo` (as atuais são aproximadas de Vicente Pires).
-7. **Google Business Profile** — reivindicar/atualizar (categoria, horário, fotos). NAP igual ao do site.
-8. **Fotos** — as atuais vieram de screenshots de stories. Se o cliente tiver os
+2. **Preços** — os oito sabores estão com `R$ 00,00`. Confirmar com o cliente.
+3. **Nome duplicado** — os stories "Choco Milk" e "Choco Chip e Brigadeiro" têm a
+   mesma descrição (*massa de baunilha, gotas de chocolate amargo e ao leite,
+   recheado com brigadeiro de chocolate*). Estão unificados num card só, com o nome
+   "Choco Chip e Brigadeiro". Confirmar se é um produto ou dois.
+4. **Alérgenos** — conferir as tags de cada sabor com quem produz. As atuais foram
+   inferidas das descrições: soja assumida em Negresco e Kit Kat; ovo não está
+   declarado em nenhum, apesar de provável na massa.
+5. **Domínio** — trocar `REPLACE_COM_SEU_DOMINIO` no `index.html` (`og:url`, `og:image`, `logo`, JSON-LD).
+6. **Mapa** — trocar o `src` do `<iframe>` pelo embed real do endereço da loja (Google Maps → Compartilhar → Incorporar).
+7. **Telefone no JSON-LD** — `+55REPLACE_DDD_NUMERO` e coordenadas `geo` (as atuais são aproximadas de Vicente Pires).
+8. **Google Business Profile** — reivindicar/atualizar (categoria, horário, fotos). NAP igual ao do site.
+9. **Fotos** — as atuais vieram de screenshots de stories. Se o cliente tiver os
    originais do fotógrafo (assinados "yoi"), substituir por eles em resolução maior.
 
 ## Deploy

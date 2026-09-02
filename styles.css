@@ -264,9 +264,8 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 5px 10px; border-radius: 999px; text-align: right; max-width: 62%;
 }
 
-/* card destaque do "sabor da semana" — ocupa a sobra da grade */
-.flavor-card--week { background: var(--choco); color: var(--cream); grid-column: span 2; }
-@media (max-width: 580px) { .flavor-card--week { grid-column: auto; } }
+/* card destaque do "sabor da semana" — fecha a grade 3x3 */
+.flavor-card--week { background: var(--choco); color: var(--cream); }
 .flavor-card--week .flavor-body { justify-content: center; align-items: flex-start; min-height: 230px; padding: 30px; }
 .flavor-card--week p { max-width: 46ch; }
 .flavor-card--week p { color: color-mix(in srgb, var(--cream) 80%, transparent); }
