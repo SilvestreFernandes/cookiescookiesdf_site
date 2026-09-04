@@ -8,7 +8,7 @@
      Instagram. Assim que tiver o número, preencha WA_NUMBER
      (formato internacional, só dígitos: 55 + DDD + número).
      ----------------------------------------------------------- */
-  var WA_NUMBER = ""; // ex.: "5561999999999"
+  var WA_NUMBER = "5561996467543"; // Cookies & Cookies Brasília
   var WA_MESSAGE = "Oi! Vim pelo site e quero pedir cookies 🍪";
   var INSTAGRAM_URL = "https://www.instagram.com/cookiesecookies.df/";
 
