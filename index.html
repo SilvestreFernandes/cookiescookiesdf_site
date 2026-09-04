@@ -17,8 +17,9 @@
 <meta property="og:image" content="https://REPLACE_COM_SEU_DOMINIO/assets/og.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="assets/logo.png" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
@@ -80,7 +81,7 @@
 <main id="conteudo">
 
   <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div class="hero-copy reveal">
         <p class="eyebrow">Vicente Pires · Brasília-DF</p>
@@ -100,8 +101,33 @@
       </div>
 
       <div class="hero-art reveal">
-        <div class="hero-frame">
-          <img src="assets/hero-cookie.jpg" width="1400" height="952"
+        <div class="hero-frame" data-hero-frame>
+          <!-- toca sozinho, em loop; o poster garante pintura imediata.
+               muted + playsinline são o que permite o autoplay no mobile.
+
+               O arquivo tem ~16s porque o ping-pong está EMBUTIDO nele:
+               os 8s originais seguidos deles ao contrário (sem repetir os
+               frames das pontas). Assim o `loop` nativo já é contínuo.
+               Não tente fazer o reverso em JS movendo currentTime para
+               trás: medido aqui, dá 0 fps — o clipe tem 1 keyframe só e
+               cada passo atrás redecodifica desde o início. Para regerar:
+
+               ffmpeg -i origem.mp4 -an -filter_complex \
+                 "[0:v]split[a][b];[b]reverse,trim=start_frame=1:\
+                  end_frame=191,setpts=PTS-STARTPTS[r];[a][r]concat=n=2:v=1[out]" \
+                 -map "[out]" -c:v libx264 -crf 23 -preset slow \
+                 -pix_fmt yuv420p -movflags +faststart saida.mp4       -->
+          <video class="hero-video" data-hero-video
+                 width="1280" height="720"
+                 autoplay muted loop playsinline webkit-playsinline
+                 preload="auto"
+                 disablepictureinpicture disableremoteplayback
+                 poster="assets/hero-cookie.jpg"
+                 aria-label="Cookie recheado girando sobre uma tábua de madeira.">
+            <source src="assets/video_hero.mp4" type="video/mp4" />
+          </video>
+          <!-- fallback: reduced-motion, sem suporte a vídeo ou autoplay negado -->
+          <img class="hero-fallback" src="assets/hero-cookie.jpg" width="1400" height="952"
                alt="Cookie dourado numa tábua de madeira, com brigadeiro de chocolate escorrendo do centro e um copo de leite ao fundo." />
         </div>
         <div class="hero-badge" aria-hidden="true">
@@ -424,6 +450,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script defer src="script.js"></script>
 </body>
 </html>

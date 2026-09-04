@@ -192,10 +192,20 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--shadow);
   transform: rotate(-1.5deg);
 }
-.hero-frame img {
-  width: 100%; height: auto; aspect-ratio: 1.471; object-fit: cover;
+.hero-frame img,
+.hero-frame video {
+  width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
   border-radius: calc(var(--radius-lg) - 6px);
+  background: var(--cream-2);
 }
+
+/* Alterna vídeo <-> imagem estática. Por padrão mostra a imagem:
+   o vídeo só assume quando o JS confirma que ele realmente tocou.
+   (Seletores com 2 classes para vencer `.hero-frame video` acima.) */
+.hero-frame .hero-video { display: none; }
+.hero-frame .hero-fallback { display: block; }
+.hero-frame.video-ready .hero-video { display: block; }
+.hero-frame.video-ready .hero-fallback { display: none; }
 .hero-badge {
   position: absolute; left: -14px; bottom: -18px;
   background: var(--choco); color: var(--cream);
